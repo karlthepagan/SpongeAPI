@@ -41,7 +41,6 @@ import org.spongepowered.api.event.command.SendCommandEvent;
 import org.spongepowered.api.event.command.TabCompleteCommandEvent;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.api.text.Text;
-import org.spongepowered.api.text.TextBuilder;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.util.TextMessageException;
@@ -269,7 +268,7 @@ public class SimpleCommandManager implements CommandManager {
                 }
             }
         } catch (Throwable thr) {
-            TextBuilder excBuilder;
+            Text.Builder excBuilder;
             if (thr instanceof TextMessageException) {
                 Text text = ((TextMessageException) thr).getText();
                 excBuilder = text == null ? Texts.builder("null") : text.builder();

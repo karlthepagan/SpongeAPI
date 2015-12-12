@@ -175,7 +175,7 @@ public final class Texts {
      * @return The built text object
      */
     public static Text of(Object... objects) {
-        TextBuilder builder = builder();
+        Text.Builder builder = builder();
         TextFormat format = new TextFormat();
         HoverAction<?> hoverAction = null;
         ClickAction<?> clickAction = null;
@@ -205,7 +205,7 @@ public final class Texts {
                     // Unsupported TextAction
                 }
             } else {
-                TextBuilder childBuilder;
+                Text.Builder childBuilder;
 
                 if (obj instanceof String) {
                     childBuilder = Texts.builder((String) obj);
@@ -313,7 +313,7 @@ public final class Texts {
             }
         }
         // Also check child texts for placeholders
-        TextBuilder builder = null;
+        Text.Builder builder = null;
         List<Text> children = template.getChildren();
         for (int i = 0; i < children.size(); ++i) {
             final Text child = children.get(i);
@@ -331,84 +331,84 @@ public final class Texts {
     }
 
     /**
-     * Creates a {@link TextBuilder} with empty text.
+     * Creates a {@link Text.Builder} with empty text.
      *
      * @return A new text builder with empty text
      */
-    public static TextBuilder.Literal builder() {
-        return new TextBuilder.Literal();
+    public static Text.Literal.Builder builder() {
+        return new Text.Literal.Builder();
     }
 
     /**
-     * Creates a new unformatted {@link TextBuilder.Literal} with the specified
+     * Creates a new unformatted {@link Text.Literal.Builder} with the specified
      * content.
      *
      * @param content The content of the text
      * @return The created text builder
      * @see Text.Literal
-     * @see TextBuilder.Literal
+     * @see Text.Literal.Builder
      */
-    public static TextBuilder.Literal builder(String content) {
-        return new TextBuilder.Literal(content);
+    public static Text.Literal.Builder builder(String content) {
+        return new Text.Literal.Builder(content);
     }
 
     /**
-     * Creates a new {@link TextBuilder.Literal} with the formatting and actions
+     * Creates a new {@link Text.Literal.Builder} with the formatting and actions
      * of the specified {@link Text} and the given content.
      *
      * @param text The text to apply the properties from
      * @param content The content for the text builder
      * @return The created text builder
      * @see Text.Literal
-     * @see TextBuilder.Literal
+     * @see Text.Literal.Builder
      */
-    public static TextBuilder.Literal builder(Text text, String content) {
-        return new TextBuilder.Literal(text, content);
+    public static Text.Literal.Builder builder(Text text, String content) {
+        return new Text.Literal.Builder(text, content);
     }
 
     /**
-     * Creates a new unformatted {@link TextBuilder.Placeholder} with the
+     * Creates a new unformatted {@link Placeholder.Builder} with the
      * specified key.
      *
      * @param key The key of the placeholder
      * @return The created placeholder builder
      * @see Text.Placeholder
-     * @see TextBuilder.Placeholder
+     * @see Placeholder.Builder
      */
-    public static TextBuilder.Placeholder placeholderBuilder(String key) {
-        return new TextBuilder.Placeholder(key);
+    public static Placeholder.Builder placeholderBuilder(String key) {
+        return new Placeholder.Builder(key);
     }
 
     /**
-     * Creates a new unformatted {@link TextBuilder.Translatable} with the given
+     * Creates a new unformatted {@link Text.Translatable.TranslatableBuilder} with the given
      * {@link Translation} and arguments.
      *
      * @param translation The translation for the builder
      * @param args The arguments for the translation
      * @return The created text builder
      * @see Text.Translatable
-     * @see TextBuilder.Translatable
+     * @see Text.Translatable.TranslatableBuilder
      */
-    public static TextBuilder.Translatable builder(Translation translation, Object... args) {
-        return new TextBuilder.Translatable(translation, args);
+    public static Text.Translatable.TranslatableBuilder builder(Translation translation, Object... args) {
+        return new Text.Translatable.TranslatableBuilder(translation, args);
     }
 
     /**
-     * Creates a new unformatted {@link TextBuilder.Translatable} from the given
+     * Creates a new unformatted {@link Text.Translatable.TranslatableBuilder} from the given
      * {@link Translatable}.
      *
      * @param translatable The translatable for the builder
      * @param args The arguments for the translation
      * @return The created text builder
      * @see Text.Translatable
-     * @see TextBuilder.Translatable
+     * @see Text.Translatable.TranslatableBuilder
      */
-    public static TextBuilder.Translatable builder(Translatable translatable, Object... args) {
-        return new TextBuilder.Translatable(translatable, args);
+    public static Text.Translatable.TranslatableBuilder builder(Translatable translatable, Object... args) {
+        return new Text.Translatable.TranslatableBuilder(translatable, args);
     }
 
     /**
-     * Creates a new {@link TextBuilder.Translatable} with the formatting and
+     * Creates a new {@link Text.Translatable.TranslatableBuilder} with the formatting and
      * actions of the specified {@link Text} and the given {@link Translation}
      * and arguments.
      *
@@ -417,14 +417,14 @@ public final class Texts {
      * @param args The arguments for the translation
      * @return The created text builder
      * @see Text.Translatable
-     * @see TextBuilder.Translatable
+     * @see Text.Translatable.TranslatableBuilder
      */
-    public static TextBuilder.Translatable builder(Text text, Translation translation, Object... args) {
-        return new TextBuilder.Translatable(text, translation, args);
+    public static Text.Translatable.TranslatableBuilder builder(Text text, Translation translation, Object... args) {
+        return new Text.Translatable.TranslatableBuilder(text, translation, args);
     }
 
     /**
-     * Creates a new {@link TextBuilder.Translatable} with the formatting and
+     * Creates a new {@link Text.Translatable.TranslatableBuilder} with the formatting and
      * actions of the specified {@link Text} and the given {@link Translatable}.
      *
      * @param text The text to apply the properties from
@@ -432,63 +432,63 @@ public final class Texts {
      * @param args The arguments for the translation
      * @return The created text builder
      * @see Text.Translatable
-     * @see TextBuilder.Translatable
+     * @see Text.Translatable.TranslatableBuilder
      */
-    public static TextBuilder.Translatable builder(Text text, Translatable translatable, Object... args) {
-        return new TextBuilder.Translatable(text, translatable, args);
+    public static Text.Translatable.TranslatableBuilder builder(Text text, Translatable translatable, Object... args) {
+        return new Text.Translatable.TranslatableBuilder(text, translatable, args);
     }
 
     /**
-     * Creates a new unformatted {@link TextBuilder.Selector} with the given
+     * Creates a new unformatted {@link Text.Selector.Builder} with the given
      * selector.
      *
      * @param selector The selector for the builder
      * @return The created text builder
      * @see Text.Selector
-     * @see TextBuilder.Selector
+     * @see Text.Selector.Builder
      */
-    public static TextBuilder.Selector builder(Selector selector) {
-        return new TextBuilder.Selector(selector);
+    public static Text.Selector.Builder builder(Selector selector) {
+        return new Text.Selector.Builder(selector);
     }
 
     /**
-     * Creates a new {@link TextBuilder.Selector} with the formatting and
+     * Creates a new {@link Text.Selector.Builder} with the formatting and
      * actions of the specified {@link Text} and the given selector.
      *
      * @param text The text to apply the properties from
      * @param selector The selector for the builder
      * @return The created text builder
      * @see Text.Selector
-     * @see TextBuilder.Selector
+     * @see Text.Selector.Builder
      */
-    public static TextBuilder.Selector builder(Text text, Selector selector) {
-        return new TextBuilder.Selector(text, selector);
+    public static Text.Selector.Builder builder(Text text, Selector selector) {
+        return new Text.Selector.Builder(text, selector);
     }
 
     /**
-     * Creates a new unformatted {@link TextBuilder.Score} with the given score.
+     * Creates a new unformatted {@link Text.Score.Builder} with the given score.
      *
      * @param score The score for the text builder
      * @return The created text builder
      * @see Text.Score
-     * @see TextBuilder.Score
+     * @see Text.Score.Builder
      */
-    public static TextBuilder.Score builder(Score score) {
-        return new TextBuilder.Score(score);
+    public static Text.Score.Builder builder(Score score) {
+        return new Text.Score.Builder(score);
     }
 
     /**
-     * Creates a new {@link TextBuilder.Score} with the formatting and actions
+     * Creates a new {@link Text.Score.Builder} with the formatting and actions
      * of the specified {@link Text} and the given score.
      *
      * @param text The text to apply the properties from
      * @param score The score for the text builder
      * @return The created text builder
      * @see Text.Score
-     * @see TextBuilder.Score
+     * @see Text.Score.Builder
      */
-    public static TextBuilder.Score builder(Text text, Score score) {
-        return new TextBuilder.Score(text, score);
+    public static Text.Score.Builder builder(Text text, Score score) {
+        return new Text.Score.Builder(text, score);
     }
 
     /**
@@ -525,7 +525,7 @@ public final class Texts {
             case 1:
                 return texts[0];
             default:
-                TextBuilder builder = builder();
+                Text.Builder builder = builder();
                 boolean appendSeparator = false;
                 for (Text text : texts) {
                     if (appendSeparator) {

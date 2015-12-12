@@ -36,7 +36,6 @@ import org.spongepowered.api.CatalogType;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
-import org.spongepowered.api.text.TextBuilder;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.util.GuavaCollectors;
 import org.spongepowered.api.util.StartsWithPredicate;
@@ -255,7 +254,7 @@ public final class GenericArguments {
 
         @Override
         public Text getUsage(CommandSource commander) {
-            final TextBuilder build = Texts.builder();
+            final Text.Builder build = Texts.builder();
             for (Iterator<CommandElement> it = this.elements.iterator(); it.hasNext();) {
                 build.append(it.next().getUsage(commander));
                 if (it.hasNext()) {
@@ -320,7 +319,7 @@ public final class GenericArguments {
         @Override
         public Text getUsage(CommandSource commander) {
             if (this.choicesInUsage) {
-                final TextBuilder build = Texts.builder();
+                final Text.Builder build = Texts.builder();
                 build.append(CommandMessageFormatting.LT_TEXT);
                 for (Iterator<String> it = this.choices.keySet().iterator(); it.hasNext();) {
                     build.append(Texts.of(it.next()));
@@ -400,7 +399,7 @@ public final class GenericArguments {
 
         @Override
         public Text getUsage(CommandSource commander) {
-            final TextBuilder ret = Texts.builder();
+            final Text.Builder ret = Texts.builder();
             for (Iterator<CommandElement> it = this.elements.iterator(); it.hasNext();) {
                 ret.append(it.next().getUsage(commander));
                 if (it.hasNext()) {

@@ -34,7 +34,6 @@ public interface MobSpawnerSpawnCause extends BlockSpawnCause {
         return Sponge.getRegistry().createBuilder(Builder.class);
     }
 
-
     ImmutableMobSpawnerData getMobSpawnerData();
 
     interface Builder extends BlockSpawnCause.Builder {

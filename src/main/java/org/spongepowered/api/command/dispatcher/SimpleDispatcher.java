@@ -37,7 +37,6 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import org.spongepowered.api.text.Text;
-import org.spongepowered.api.text.TextBuilder;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.format.TextColors;
@@ -369,7 +368,7 @@ public final class SimpleDispatcher implements Dispatcher {
         if (this.commands.isEmpty()) {
             return Optional.empty();
         }
-        TextBuilder build = t("Available commands:\n").builder();
+        Text.Builder build = t("Available commands:\n").builder();
         for (Iterator<String> it = filterCommands(source).iterator(); it.hasNext();) {
             final Optional<CommandMapping> mappingOpt = get(it.next(), source);
             if (!mappingOpt.isPresent()) {
@@ -405,7 +404,7 @@ public final class SimpleDispatcher implements Dispatcher {
 
     @Override
     public Text getUsage(final CommandSource source) {
-        final TextBuilder build = Texts.builder();
+        final Text.Builder build = Texts.builder();
         Iterable<String> filteredCommands = filterCommands(source).stream()
             .filter(input -> {
                 if (input == null) {
