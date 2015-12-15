@@ -30,8 +30,10 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import java.net.InetSocketAddress;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.GameState;
@@ -49,6 +51,7 @@ import org.spongepowered.api.data.DataTransactionResult;
 import org.spongepowered.api.data.Transaction;
 import org.spongepowered.api.data.manipulator.immutable.tileentity.ImmutableSignData;
 import org.spongepowered.api.data.manipulator.mutable.tileentity.SignData;
+import org.spongepowered.api.data.type.SkinPart;
 import org.spongepowered.api.effect.potion.PotionEffect;
 import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.entity.EntitySnapshot;
@@ -122,6 +125,7 @@ import org.spongepowered.api.event.entity.living.human.ChangeGameModeEvent;
 import org.spongepowered.api.event.entity.living.human.ChangeLevelEvent;
 import org.spongepowered.api.event.entity.living.human.TargetHumanEvent;
 import org.spongepowered.api.event.entity.living.player.KickPlayerEvent;
+import org.spongepowered.api.event.entity.living.player.PlayerChangeClientSettingsEvent;
 import org.spongepowered.api.event.entity.living.player.ResourcePackStatusEvent;
 import org.spongepowered.api.event.entity.living.player.RespawnPlayerEvent;
 import org.spongepowered.api.event.entity.living.player.TargetPlayerEvent;
@@ -189,6 +193,7 @@ import org.spongepowered.api.resourcepack.ResourcePack;
 import org.spongepowered.api.statistic.Statistic;
 import org.spongepowered.api.statistic.achievement.Achievement;
 import org.spongepowered.api.text.Text;
+import org.spongepowered.api.text.chat.ChatVisibility;
 import org.spongepowered.api.text.sink.MessageSink;
 import org.spongepowered.api.util.Direction;
 import org.spongepowered.api.util.Tuple;
@@ -2780,6 +2785,32 @@ public class SpongeEventFactory {
         values.put("sink", sink);
         values.put("targetEntity", targetEntity);
         return SpongeEventFactoryUtils.createEventImpl(KickPlayerEvent.class, values);
+    }
+
+    /**
+     * AUTOMATICALLY GENERATED, DO NOT EDIT.
+     * Creates a new instance of
+     * {@link org.spongepowered.api.event.entity.living.player.PlayerChangeClientSettingsEvent}.
+     * 
+     * @param game The game
+     * @param chatVisibility The chat visibility
+     * @param displayedSkinParts The displayed skin parts
+     * @param locale The locale
+     * @param targetEntity The target entity
+     * @param chatColorsEnabled The chat colors enabled
+     * @param viewDistance The view distance
+     * @return A new player change client settings event
+     */
+    public static PlayerChangeClientSettingsEvent createPlayerChangeClientSettingsEvent(Game game, ChatVisibility chatVisibility, Set<SkinPart> displayedSkinParts, Locale locale, Player targetEntity, boolean chatColorsEnabled, int viewDistance) {
+        Map<String, Object> values = Maps.newHashMap();
+        values.put("game", game);
+        values.put("chatVisibility", chatVisibility);
+        values.put("displayedSkinParts", displayedSkinParts);
+        values.put("locale", locale);
+        values.put("targetEntity", targetEntity);
+        values.put("chatColorsEnabled", chatColorsEnabled);
+        values.put("viewDistance", viewDistance);
+        return SpongeEventFactoryUtils.createEventImpl(PlayerChangeClientSettingsEvent.class, values);
     }
 
     /**

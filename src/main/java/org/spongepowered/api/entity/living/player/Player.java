@@ -24,9 +24,12 @@
  */
 package org.spongepowered.api.entity.living.player;
 
+import org.spongepowered.api.command.source.LocatedSource;
+import org.spongepowered.api.command.source.RemoteSource;
 import org.spongepowered.api.data.manipulator.mutable.DisplayNameData;
 import org.spongepowered.api.data.manipulator.mutable.entity.GameModeData;
 import org.spongepowered.api.data.manipulator.mutable.entity.JoinData;
+import org.spongepowered.api.data.type.SkinPart;
 import org.spongepowered.api.effect.Viewer;
 import org.spongepowered.api.entity.living.Humanoid;
 import org.spongepowered.api.entity.living.player.tab.TabList;
@@ -34,11 +37,11 @@ import org.spongepowered.api.network.PlayerConnection;
 import org.spongepowered.api.resourcepack.ResourcePack;
 import org.spongepowered.api.scoreboard.Scoreboard;
 import org.spongepowered.api.text.Text;
-import org.spongepowered.api.command.source.LocatedSource;
-import org.spongepowered.api.command.source.RemoteSource;
+import org.spongepowered.api.text.chat.ChatVisibility;
 
 import java.util.Date;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * A Player represents the in-game entity of a human playing on a server.
@@ -56,6 +59,35 @@ public interface Player extends Humanoid, User, LocatedSource, RemoteSource, Vie
      * @return The player's locale
      */
     Locale getLocale();
+
+    /**
+     * Gets the current player chat visibility setting.
+     *
+     * @return Chat visibility setting
+     */
+    ChatVisibility getChatVisibility();
+
+    /**
+     * Gets the skin parts that this player has allowed to render.
+     *
+     * @return A set of skin parts displayed
+     */
+    Set<SkinPart> getDisplayedSkinParts();
+
+    /**
+     * Gets the view distance setting of the player. This value represents the
+     * radius (around the player) in unit chunks.
+     *
+     * @return The player's view distance
+     */
+    int getViewDistance();
+
+    /**
+     * Gets whether the player has colors enabled in chat.
+     *
+     * @return True if colors are enabled in chat
+     */
+    boolean isChatColorsEnabled();
 
     /**
      * Gets the appropriate {@link PlayerConnection} linking this Player
