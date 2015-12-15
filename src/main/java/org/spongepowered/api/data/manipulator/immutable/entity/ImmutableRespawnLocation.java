@@ -29,6 +29,7 @@ import org.spongepowered.api.data.manipulator.ImmutableDataManipulator;
 import org.spongepowered.api.data.manipulator.mutable.entity.RespawnLocationData;
 import org.spongepowered.api.data.value.immutable.ImmutableMapValue;
 import org.spongepowered.api.entity.living.player.Player;
+import org.spongepowered.api.util.Tuple;
 import org.spongepowered.api.world.World;
 
 import java.util.Optional;
@@ -36,8 +37,9 @@ import java.util.UUID;
 
 /**
  * An {@link ImmutableDataManipulator} for the "respawn" location of a
- * {@link Player}. A {@link Player} may have multiple respawn locations, but
- * can only have a single respawn location per {@link World}.
+ * {@link Player}. A {@link Player} may have multiple respawn locations, but can
+ * only have a single respawn location per {@link World}. A location can be
+ * 'forced', which means they will spawn there even if it's not a valid bed.
  */
 public interface ImmutableRespawnLocation extends ImmutableDataManipulator<ImmutableRespawnLocation, RespawnLocationData> {
 
@@ -49,15 +51,15 @@ public interface ImmutableRespawnLocation extends ImmutableDataManipulator<Immut
      *
      * @return The immutable map for the respawn locations per world id
      */
-    ImmutableMapValue<UUID, Vector3d> respawnLocation();
+    ImmutableMapValue<UUID, Tuple<Vector3d, Boolean>> respawnLocation();
 
     /**
-     * Gets the {@link Vector3d} location for the spawn world if available.
-     * If the respawn point for that world has not been set,
+     * Gets the {@link Vector3d} location and whether it's forced for the spawn
+     * world if available. If the respawn point for that world has not been set,
      * {@link Optional#empty()} is returned.
      *
      * @param world The world to check
-     * @return The vector location
+     * @return The vector location and boolean 'forced'
      */
-    Optional<Vector3d> getForWorld(World world);
+    Optional<Tuple<Vector3d, Boolean>> getForWorld(World world);
 }
