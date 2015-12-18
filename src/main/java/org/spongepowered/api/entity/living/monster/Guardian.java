@@ -24,6 +24,8 @@
  */
 package org.spongepowered.api.entity.living.monster;
 
+import org.spongepowered.api.data.key.Keys;
+import org.spongepowered.api.data.value.mutable.Value;
 import org.spongepowered.api.entity.living.Aquatic;
 
 /**
@@ -31,4 +33,7 @@ import org.spongepowered.api.entity.living.Aquatic;
  */
 public interface Guardian extends Aquatic, Monster {
 
+    default Value<Boolean> getIsElder() {
+        return getValue(Keys.ELDER_GUARDIAN).get();
+    }
 }

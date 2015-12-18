@@ -24,8 +24,11 @@
  */
 package org.spongepowered.api.entity.living;
 
+import org.spongepowered.api.data.key.Keys;
 import org.spongepowered.api.data.manipulator.mutable.entity.DamageableData;
 import org.spongepowered.api.data.manipulator.mutable.entity.HealthData;
+import org.spongepowered.api.data.value.mutable.MutableBoundedValue;
+import org.spongepowered.api.data.value.mutable.Value;
 import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.effect.potion.PotionEffect;
 import org.spongepowered.api.scoreboard.TeamMember;
@@ -45,6 +48,14 @@ public interface Living extends Entity, TeamMember {
      */
     default HealthData getHealthData() {
         return get(HealthData.class).get();
+    }
+
+    default MutableBoundedValue<Double> health() {
+        return getValue(Keys.HEALTH).get();
+    }
+
+    default MutableBoundedValue<Double> maxHealth() {
+        return getValue(Keys.MAX_HEALTH).get();
     }
 
     /**
