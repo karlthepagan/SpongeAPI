@@ -33,7 +33,7 @@ import org.spongepowered.api.entity.living.Aquatic;
  */
 public interface Guardian extends Aquatic, Monster {
 
-    default Value<Boolean> getIsElder() {
+    default Value<Boolean> elder() {
         return getValue(Keys.ELDER_GUARDIAN).get();
     }
 }

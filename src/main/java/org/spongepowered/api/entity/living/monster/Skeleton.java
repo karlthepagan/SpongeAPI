@@ -46,7 +46,7 @@ public interface Skeleton extends Monster, ArmorEquipable, ProjectileSource {
         return get(SkeletonData.class).get();
     }
 
-    default Value<SkeletonType> getSkeletonType() {
+    default Value<SkeletonType> variant() {
         return getValue(Keys.SKELETON_TYPE).get();
     }
 

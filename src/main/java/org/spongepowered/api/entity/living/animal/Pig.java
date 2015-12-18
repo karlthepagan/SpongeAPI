@@ -42,7 +42,7 @@ public interface Pig extends Animal {
         return get(PigSaddleData.class).get();
     }
 
-    default Value<Boolean> getIsSaddled() {
+    default Value<Boolean> saddled() {
         return getValue(Keys.PIG_SADDLE).get();
     }
 

@@ -32,7 +32,7 @@ import org.spongepowered.api.data.value.mutable.Value;
  */
 public interface IronGolem extends Golem {
 
-    default Value<Boolean> getIsPlayerCreated() {
+    default Value<Boolean> playerCreated() {
         return getValue(Keys.PLAYER_CREATED).get();
     }
 

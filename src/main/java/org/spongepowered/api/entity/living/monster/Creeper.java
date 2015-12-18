@@ -33,7 +33,7 @@ import org.spongepowered.api.entity.explosive.IgnitableExplosive;
  */
 public interface Creeper extends Monster, IgnitableExplosive {
 
-    default Value<Boolean> getIsCharged() {
+    default Value<Boolean> charged() {
         return getValue(Keys.CREEPER_CHARGED).get();
     }
 

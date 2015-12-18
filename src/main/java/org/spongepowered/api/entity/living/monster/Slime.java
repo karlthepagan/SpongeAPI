@@ -42,7 +42,7 @@ public interface Slime extends Monster {
         return get(SlimeData.class).get();
     }
 
-    default MutableBoundedValue<Integer> getSlimeSize() {
+    default MutableBoundedValue<Integer> slimeSize() {
         return getValue(Keys.SLIME_SIZE).get();
     }
 

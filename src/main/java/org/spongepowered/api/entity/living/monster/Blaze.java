@@ -34,7 +34,7 @@ import org.spongepowered.api.entity.projectile.source.ProjectileSource;
  */
 public interface Blaze extends Monster, ProjectileSource, Aerial {
 
-    default Value<Boolean> getIsAflame() {
+    default Value<Boolean> aflame() {
         return getValue(Keys.IS_AFLAME).get();
     }
 

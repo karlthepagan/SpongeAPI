@@ -44,7 +44,7 @@ public interface Rabbit extends Animal {
         return get(RabbitData.class).get();
     }
 
-    default Value<RabbitType> getVariant() {
+    default Value<RabbitType> variant() {
         return getValue(Keys.RABBIT_TYPE).get();
     }
 

@@ -42,7 +42,7 @@ public interface ZombiePigman extends Zombie {
         return get(AngerableData.class).get();
     }
 
-    default MutableBoundedValue<Integer> getAnger() {
+    default MutableBoundedValue<Integer> angerLevel() {
         return getValue(Keys.ANGER).get();
     }
 

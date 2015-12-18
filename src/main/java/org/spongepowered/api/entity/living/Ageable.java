@@ -24,7 +24,9 @@
  */
 package org.spongepowered.api.entity.living;
 
+import org.spongepowered.api.data.key.Keys;
 import org.spongepowered.api.data.manipulator.mutable.entity.AgeableData;
+import org.spongepowered.api.data.value.mutable.MutableBoundedValue;
 import org.spongepowered.api.entity.Entity;
 
 /**
@@ -47,6 +49,10 @@ public interface Ageable extends Creature {
      */
     default AgeableData getAgeData() {
         return get(AgeableData.class).get();
+    }
+
+    default MutableBoundedValue<Integer> age() {
+        return getValue(Keys.AGE).get();
     }
 
 }

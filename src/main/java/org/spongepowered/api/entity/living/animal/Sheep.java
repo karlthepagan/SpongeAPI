@@ -44,7 +44,7 @@ public interface Sheep extends Animal {
         return get(DyeableData.class).get();
     }
 
-    default Value<DyeColor> getColor() {
+    default Value<DyeColor> color() {
         return getValue(Keys.DYE_COLOR).get();
     }
 
